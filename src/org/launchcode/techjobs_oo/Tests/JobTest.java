@@ -58,4 +58,38 @@ public class JobTest {
         Job mySecondJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistency"));
         assertFalse(mySecondJob.equals(myFirstJob));
     }
+    @Test
+    public void returnsBlankLineBeforeAndAfterInfo() {
+        Job myFirstJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistency"));
+        assertEquals(myFirstJob.toString().endsWith(""), true);
+        assertEquals(myFirstJob.toString().startsWith(""), true);
+
+    }
+    //string should contain a label for each field, followed by the data stored
+    // in that field. Each field should be on its own line.
+    @Test
+    public void stringContainsLabelsAndData() {
+        Job myFirstJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistency"));
+        String expected = ""+ '\n'+ "ID: 3"+'\n'+"Name: Product tester"+'\n'+"Employer: ACME"+'\n'+"Location: Desert\n"+"Position Type: Quality control\n"+"Core Competency: Persistency"+"\n";
+        assertEquals(expected, myFirstJob.toString());
+    }
+
+    @Test
+    public void emptyStringMessage() {
+        Job myFirstJob = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistency"));
+        String expected = ""+ '\n'+ "ID: "+myFirstJob.getId()+'\n'+"Name: Data not available"+'\n'+"Employer: ACME"+'\n'+"Location: Desert\n"+"Position Type: Quality control\n"+"Core Competency: Persistency"+"\n";
+        assertEquals(expected, myFirstJob.toString());
+    }
+//
+//    @Test
+//    public void onlyIdFilled() {
+//        Job myFirstJob = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+//        String expected = "OOPS! This job does not seem to exist.";
+//        assertEquals(expected, myFirstJob.toString());
+//    }
+    @Test
+    public void newBlankLinesTest() {
+
+    }
+
 }

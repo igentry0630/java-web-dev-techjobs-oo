@@ -14,7 +14,6 @@ public class Job {
     private CoreCompetency coreCompetency;
 
 
-
     public Job() {
 
         id = nextId;
@@ -32,10 +31,10 @@ public class Job {
     }
 
 
-
-
     @Override
-    public int hashCode() { return Objects.hash(id); }
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
 
 //        @Override
@@ -56,36 +55,45 @@ public class Job {
 //        return theJob.getId() == getId();
 
 
-        // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
-        //  other five fields. The second constructor should also call the first in order to initialize
-        //  the 'id' field.
+    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
+    //  other five fields. The second constructor should also call the first in order to initialize
+    //  the 'id' field.
 
-        // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-        //  match.
+    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
+    //  match.
 
-       // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-        //  and id.
+    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
+    //  and id.
 //    }
 
     @Override
     public String toString() {
-        return "Job{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", employer=" + employer +
-                ", location=" + location +
-                ", positionType=" + positionType +
-                ", coreCompetency=" + coreCompetency +
-                '}';
-    }
+//        return ""+ '\n'+ "ID: "+ this.getId()+'\n'+"Name: "+this.getName()+'\n'+"Employer: "+this.getEmployer()+'\n'+"Location: "+this.getLocation()+'\n'+"Position Type: "+this.getPositionType()+'\n'+"Core Competency: "+this.getCoreCompetency()+"\n";
+        System.out.println("\n");
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Job job = (Job) o;
-        return id == job.id && Objects.equals(name, job.name) && Objects.equals(employer, job.employer) && Objects.equals(location, job.location) && Objects.equals(positionType, job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
-    }
+        if (this.getName() == "")
+            return "" + '\n' + "ID: " + this.getId() + '\n' + "Name: Data not available" + '\n' + "Employer: " + this.getEmployer() + '\n' + "Location: " + this.getLocation() + '\n' + "Position Type: " + this.getPositionType() + '\n' + "Core Competency: " + this.getCoreCompetency() + "\n";
+
+        if (this.getEmployer().toString() == "")
+            return "" + '\n' + "ID: " + this.getId() + '\n' + "Name: " + this.getName() + '\n' + "Employer: " + "Data not available" + '\n' + "Location: " + this.getLocation() + '\n' + "Position Type: " + this.getPositionType() + '\n' + "Core Competency: " + this.getCoreCompetency() + "\n";
+
+        if (this.getLocation().toString() == "")
+            return "" + '\n' + "ID: " + this.getId() + '\n' + "Name: " + this.getName() + '\n' + "Employer: " + this.getEmployer() + '\n' + "Location: " + "Data not available" + '\n' + "Position Type: " + this.getPositionType() + '\n' + "Core Competency: " + this.getCoreCompetency() + "\n";
+
+        if (this.getPositionType().toString() == "")
+            return "" + '\n' + "ID: " + this.getId() + '\n' + "Name: " + this.getName() + '\n' + "Employer: " + this.getEmployer() + '\n' + "Location: " + this.getLocation() + '\n' + "Position Type: " + "Data not available" + '\n' + "Core Competency: " + this.getCoreCompetency() + "\n";
+
+        if (this.getCoreCompetency().toString() == "")
+            return "" + '\n' + "ID: " + this.getId() + '\n' + "Name: " + this.getName() + '\n' + "Employer: " + this.getEmployer() + '\n' + "Location: " + this.getLocation() + '\n' + "Position Type: " + this.getPositionType() + '\n' + "Core Competency: " + "Data not available" + "\n";
+//        return "OOPS! This job does not seem to exist. \n";
+        return "" + '\n' + "ID: " + this.getId() + '\n' + "Name: " + this.getName() + '\n' + "Employer: " + this.getEmployer() + '\n' + "Location: " + this.getLocation() + '\n' + "Position Type: " + this.getPositionType() + '\n' + "Core Competency: " + this.getCoreCompetency() + "\n";
+
+
+
+        }
+
+
+
 
     public int getId() {
         return id;
